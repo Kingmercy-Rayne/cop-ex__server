@@ -9,7 +9,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Kingmercy Anointing",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
