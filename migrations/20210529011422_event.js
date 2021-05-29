@@ -13,19 +13,13 @@ exports.up = function (knex) {
       table.integer("has_concept_paper").defaultTo(0);
       table.text("officers_present");
       table.integer("is_registration_closed").defaultTo(0);
-      table.date("date").notNullable();
+      // table.date("date").notNullable();
+      table.string("date").notNullable();
       table.string("time").notNullable();
       table.string("location").notNullable();
       table.string("registration_link").notNullable();
-      table.string("department").notNullable();
-      table
-        .integer("user_id")
-        .unsigned()
-        .notNullable()
-        .references("id")
-        .inTable("user")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE");
+      table.string("department");
+      table.string("user_email").notNullable();
     })
     .createTable("registration", (table) => {
       table.increments();
@@ -46,6 +40,9 @@ exports.up = function (knex) {
       table.string("name").notNullable();
       table.string("email").notNullable();
       table.string("password").notNullable();
+    })
+    .createTable("notification", (table)=>{
+      table.increments()
     });
 };
 

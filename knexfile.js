@@ -7,6 +7,11 @@ module.exports = {
       filename: "./data/cop-ex.db",
     },
     useNullAsDefault: true,
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run("PRAGMA foreign_keys = ON", done);
+      },
+    },
   },
 
   // staging: {
